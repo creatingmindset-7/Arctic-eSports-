@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Arctic eSports - Elite BGMI esports organization. Freeze the battlefield and rule the game with strategy, precision, and teamwork.">
+    <meta name="keywords" content="BGMI, esports, Arctic eSports, professional gaming, tournaments, team roster">
+    <meta name="author" content="Arctic eSports">
+    <title>Arctic eSports - Elite BGMI Esports Organization</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #000;
+            color: #fff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        h1, h2, h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Utility Classes */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .text-center {
+            text-align: center;
+        }
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background: linear-gradient(45deg, #00d4ff, #0099cc);
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 212, 255, 0.3);
+        }
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 212, 255, 0.5);
+        }
+        .frosted-glass {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+        }
+        .ice-glow {
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+            transition: box-shadow 0.3s ease;
+        }
+        .ice-glow:hover {
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.8);
+        }
+
+        /* Hero Section */
+        #hero {
+            height: 100vh;
+            background: url('https://source.unsplash.com/featured/?snow,arctic,battleground') no-repeat center center/cover;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+        }
+        #hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        #hero .content {
+            z-index: 2;
+            animation: fadeInUp 1s ease-out;
+        }
+        #hero h1 {
+            font-size: 4rem;
+            margin-bottom: 10px;
+            text-shadow: 0 0 20px rgba(0, 212, 255, 0.8);
+        }
+        #hero p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+        }
+        .scroll-indicator {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+
+        /* Sections */
+        section {
+            padding: 80px 0;
+        }
+        section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-align: center;
+            color: #00d4ff;
+        }
+        section p {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+
+        /* About */
+        #about {
+            background: linear-gradient(135deg, #000, #111);
+        }
+
+        /* Team Roster */
+        #team {
+            background: #000;
+        }
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .player-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        .player-card:hover {
+            transform: translateY(-5px);
+        }
+        .player-card img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 15px;
+        }
+
+        /* Achievements */
+        #achievements {
+            background: linear-gradient(135deg, #111, #000);
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        .stat-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+        }
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #00d4ff;
+            animation: countUp 2s ease-out;
+        }
+
+        /* Gallery */
+        #gallery {
+            background: #000;
+        }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 212, 255, 0.3);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        /* Why Choose */
+        #why-choose {
+            background: linear-gradient(135deg, #000, #111);
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .feature-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* Join Us */
+        #join {
+            background: #000;
+        }
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            color: #fff;
+            font-size: 1rem;
+            transition: box-shadow 0.3s ease;
+        }
+        input:focus, textarea:focus {
+            outline: none;
+            box-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+        }
+
+        /* Contact */
+        #contact {
+            background: linear-gradient(135deg, #111, #000);
+        }
+        .socials {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        .social-icon {
+            font-size: 2rem;
+            transition: color 0.3s ease;
+        }
+        .social-icon:hover {
+            color: #00d4ff;
+        }
+
+        /* Footer */
+        footer {
+            background: #000;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+        @keyframes countUp {
+            from {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            #hero h1 {
+                font-size: 2.5rem;
+            }
+            section {
+                padding: 40px 0;
+            }
+            .team-grid, .gallery-grid, .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section id="hero">
+        <div class="content">
+            <h1>Arctic eSports</h1>
+            <p>Freeze the Battlefield. Rule the Game.</p>
+            <a href="#join" class="btn">Join Arctic eSports</a>
+            <a href="#gallery" class="btn">Watch Highlights</a>
+        </div>
+        <div class="scroll-indicator">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 5V19M5 12L12 19L19 12" stroke="#00d4ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="container">
+        <h2>About Arctic eSports</h2>
+        <p>Arctic eSports is a premier professional BGMI organization dedicated to dominating the esports scene. Our team embodies strategy, precision, teamwork, and a championship mindset. We train in the harshest virtual conditions to emerge victorious, freezing the competition in their tracks.</p>
+    </section>
+
+    <!-- Team Roster -->
+    <section id="team" class="container">
+        <h2>BGMI Team Roster</h2>
+        <div class="team-grid">
+            <div class="player-card ice-glow">
+                <img src="https://via.placeholder.com/100x100?text=Player1" alt="Player 1">
+                <h3>ArcticFrost</h3>
+                <p>IGL</p>
+            </div>
+            <div class="player-card ice-glow">
+                <img src="https://via.placeholder.com/100x100?text=Player2" alt="Player 2">
+                <h3>IceAssault</h3>
+                <p>Assaulter</p>
+            </div>
+            <div class="player-card ice-glow">
+                <img src="https://via.placeholder.com/100x100?text=Player3" alt="Player 3">
+                <h3>FrostSupport</h3>
+                <p>Support</p>
+            </div>
+            <div class="player-card ice-glow">
+                <img src="https://via.placeholder.com/100x100?text=Player4" alt="Player 4">
+                <h3>ArcticSniper</h3>
+                <p>Sniper</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements -->
+    <section id="achievements" class="container">
+        <h2>Achievements & Tournaments</h2>
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number">500+</div>
+                <p>Matches Played</p>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">150</div>
+                <p>WWCDs</p>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">25</div>
+                <p>Tournament Wins</p>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">$500K</div>
+                <p>Prize Pool</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery -->
+    <section id="gallery" class="container">
+        <h2>Match Highlights / Gallery</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/300x200?text=Highlight1" alt="Highlight 1" loading="lazy">
+                <div class="gallery-overlay"></div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/300x200?text=Highlight2" alt="Highlight 2" loading="lazy">
+                <div class="gallery-overlay"></div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/300x200?text=Highlight3" alt="Highlight 3" loading="lazy">
+                <div class="gallery-overlay"></div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/300x200?text=Highlight4" alt="Highlight 4" loading="lazy">
+                <div class="gallery-overlay"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose -->
+    <section id="why-choose" class="container">
+        <h2>Why Choose Arctic eSports</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <h3>Pro-level Scrims</h3>
+                <p>Intense training sessions against top teams.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Experienced IGL</h3>
+                <p>Strategic leadership from seasoned professionals.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Tactical Gameplay</h3>
+                <p>Precision and teamwork in every match.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Professional Management</h3>
+                <p>Expert coaching and organizational support.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Join Us -->
+    <section id="join" class="container">
+        <h2>Join Us</h2>
+        <form action="#" method="post">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="text" name="bgmi_id" placeholder="BGMI ID" required>
+            <select name="role" required>
+                <option value="">Select Role</option>
+                <option value="igl">IGL</option>
+                <option value="assaulter">Assaulter</option>
+                <option value="support">Support</option>
+                <option value="sniper">Sniper</option>
+            </select>
+            <textarea name="experience" placeholder="Your Experience" rows="4" required></textarea>
+            <button type="submit" class="btn">Submit Application</button>
+        </form>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="container">
+        <h2>Contact & Socials</h2>
+        <div class="socials">
+            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+          <a href="https://instagram.com/arcticesports" target="_blank">Instagram</a>
+            <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-discord"></i></a>
+            <a href="mailto:contact@arcticesports.com" class="social-icon"><i class="fas fa-envelope"></i></a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>Arctic eSports</p>
+        <p>Built in Ice. Forged for Victory.</p>
+        <p>&copy; 2023 Arctic eSports. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Parallax Effect for Hero
+        window.addEventListener('scroll', () => {
+            const hero = document.getElementById('hero');
+            const scrollY = window.scrollY;
+            hero.style.backgroundPositionY = `${scrollY *
